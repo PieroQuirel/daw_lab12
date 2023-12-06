@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario BPC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body style="margin: 0 80px 0 80px;">
+<center>
+    <h1>Formulario de Registro</h1>
+    <form th:action="@{/formulario2}" th:object="${form}"  method="POST">
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Tipo de documento:</label>
+            </div>
+            <div class="form-group col-md-2">
+                <input type="radio" value="DNI" th:field="*{documento}" id="formGroupExampleInput"/> DNI
+            </div>
+            <div class="form-group col-md-2">
+                <input type="radio" value="Carnet de extrangeria" th:field="*{documento}" id="formGroupExampleInput"/> Carnet de extrangeria
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">N° de Documento:</label>
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" th:field="*{documento_n}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese su número de documento" />
+                <p th:errors="*{documento_n}" class="text-danger">text-danger</p>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Apellido Paterno:</label>
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" th:field="*{apellido_p}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese su apellido paterno" />
+                <p th:errors="*{apellido_p}" class="text-danger">text-danger</p>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Apellido Materno:</label>
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" th:field="*{apellido_m}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese su apellido materno" />
+                <p th:errors="*{apellido_m}" class="text-danger">text-danger</p>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Nombres:</label>
+            </div>
+            <div class="form-group col-md-4">
+                <input type="text" th:field="*{nombres}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese sus nombres" />
+                <p th:errors="*{nombres}" class="text-danger">text-danger</p>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Fecha de nacimiento:</label>
+            </div>
+            <div class="form-group col-md-2">
+                <select th:field="*{dia}" class="form-control" id="exampleFormControlSelect2">
+                    <option th:each="elemento: ${T(com.miempresa.DTO.opciones.OpcionesDia).values()}"
+                            th:value="${elemento}" th:text="${elemento}" />
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <select th:field="*{mes}" class="form-control" id="exampleFormControlSelect2">
+                    <option th:each="elemento: ${T(com.miempresa.DTO.opciones.OpcionesMes).values()}"
+                            th:value="${elemento}" th:text="${elemento}" />
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <select th:field="*{anio}" class="form-control" id="exampleFormControlSelect2">
+                    <option th:each="elemento: ${T(com.miempresa.DTO.opciones.OpcionesAnio).values()}"
+                            th:value="${elemento}" th:text="${elemento}" />
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Sexo:</label>
+            </div>
+            <div class="form-group col-md-2">
+                <input type="radio" value="Masculino" th:field="*{sexo}" id="formGroupExampleInput"/> Masculino
+            </div>
+            <div class="form-group col-md-2">
+                <input type="radio" value="Femenino" th:field="*{sexo}" id="formGroupExampleInput"/> Femenino
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Estado civil:</label>
+            </div>
+            <div class="form-group col-md-2">
+                <select th:field="*{estado}" class="form-control" id="exampleFormControlSelect2">
+                    <option th:each="elemento: ${T(com.miempresa.DTO.opciones.OpcionesLaboral).values()}"
+                            th:value="${elemento}" th:text="${elemento}" />
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Situación laboral:</label>
+            </div>
+            <div class="form-group col-md-2">
+                <select th:field="*{laboral}" class="form-control" id="exampleFormControlSelect2">
+                    <option th:each="elemento: ${T(com.miempresa.DTO.opciones.OpcionesEstado).values()}"
+                            th:value="${elemento}" th:text="${elemento}" />
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">RUC de Empleador:</label>
+            </div>
+            <div class="form-group col-md-4">
+                <input type="number" th:field="*{RUC}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese su RUC" />
+                <p th:errors="*{RUC}" class="text-danger">text-danger</p>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Términos y Condiciones:</label>
+            </div>
+            <div class="form-group col-md-4">
+                <input type="checkbox" value="aceptar" th:field="*{aceptar}" id="formGroupExampleInput"/> Acepto
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <input type="submit" value="Solicitar nueva tarjeta" class="btn btn-primary" />
+            <a href="/" class="btn btn-primary" >Volver a Index</a>
+        </div>
+
+    </form>
+
+    <h2>Lista de paginas</h2>
+    <div>
+        <a href="/saludo" class="list-group-item list-group-item-action">Pagina Saludo</a>
+        <a href="/operaciones?num1=12&num2=4&ope=*" class="list-group-item list-group-item-action">Pagina Operaciones</a>
+        <a href="/formularioRegistro" class="list-group-item list-group-item-action">Pagina Formulario</a>
+        <a href="/formulario2" class="list-group-item list-group-item-action">Tarea Formulario</a>
+    </div>
+</center>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

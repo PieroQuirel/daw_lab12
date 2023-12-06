@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de envio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body style="margin: 0 80px 0 80px;">
+<center>
+    <h1>Formulario de Registro</h1>
+    <form th:action="@{/formularioRegistro}" th:object="${form}"  method="POST">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Nombre:</label>
+                <input type="text" th:field="*{nombre}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese sus nombres"/>
+                <p th:errors="*{nombre}" class="text-danger">text-danger</p>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Apellido:</label>
+                <input type="text" th:field="*{apellido}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese sus apellidos" />
+                <p th:errors="*{apellido}" class="text-danger">text-danger</p>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="exampleFormControlSelect2">Sexo:</label>
+                <select th:field="*{sexo}" class="form-control" id="exampleFormControlSelect2">
+                    <option th:each="elemento: ${T(com.miempresa.DTO.OpcionesSexo).values()}"
+                            th:value="${elemento}" th:text="${elemento}" />
+
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Edad:</label>
+                <input type="number" th:field="*{edad}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese su edad"/>
+                <p th:errors="*{edad}" class="text-danger">text-danger</p>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Correo:</label>
+                <input type="text" th:field="*{correo}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Ingrese su correo"/>
+                <p th:errors="*{correo}" class="text-danger">text-danger</p>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="formGroupExampleInput">Clave</label>
+                <input type="password" th:field="*{clave}" class="form-control" id="formGroupExampleInput"
+                       placeholder="Genere una clave"/>
+                <p th:errors="*{clave}" class="text-danger">text-danger</p>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="submit" value="Enviar" class="btn btn-primary" />
+            <a href="/" class="btn btn-primary" >Volver a Index</a>
+        </div>
+
+    </form>
+
+    <h2>Lista de paginas</h2>
+    <div>
+        <a href="/saludo" class="list-group-item list-group-item-action">Pagina Saludo</a>
+        <a href="/operaciones?num1=12&num2=4&ope=*" class="list-group-item list-group-item-action">Pagina Operaciones</a>
+        <a href="/formularioRegistro" class="list-group-item list-group-item-action">Pagina Formulario</a>
+    </div>
+</center>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

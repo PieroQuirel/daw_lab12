@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Tarjeta BCP</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link th:rel="stylesheet"/>
+</head>
+<body>
+<center>
+    <h1>Datos de Registro recibido</h1>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Documento:</label>
+            <Label th:text="${form.documento}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">N° de Documento:</label>
+            <Label th:text="${form.documento_n}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Apellido Paterno:</label>
+            <Label th:text="${form.apellido_p}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Apellido Materno:</label>
+            <Label th:text="${form.apellido_m}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Nombres:</label>
+            <Label th:text="${form.nombres}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Fecha de nacimiento:</label>
+            <Label th:text="${form.dia} + ' ' + ${form.mes} + ' ' + ${form.anio}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Sexo:</label>
+            <Label th:text="${form.sexo}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Estado Civil:</label>
+            <Label th:text="${form.estado}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="formGroupExampleInput">Situación Laboral:</label>
+            <Label th:text="${form.laboral}" class="form-control" id="formGroupExampleInput"></label>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <a href="/formulario2" class="btn btn-primary" >Sacar otra tarjeta</a>
+    </div>
+</center>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
+</html>

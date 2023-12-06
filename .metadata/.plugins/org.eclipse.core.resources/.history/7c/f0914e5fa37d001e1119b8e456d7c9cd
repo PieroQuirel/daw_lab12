@@ -1,0 +1,13 @@
+package com.miempresa;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HolaMundo {
+	@RequestMapping("/saludar")
+	public String Saludar() {
+		String saludo = "<h1> Hola mundo desde <b>Spring Boot</b> </h1>";
+			return saludo;
+	}
+
+}
